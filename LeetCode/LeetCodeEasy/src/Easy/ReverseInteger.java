@@ -1,8 +1,6 @@
 package Easy;
 
 
-import java.util.Stack;
-
 public class ReverseInteger {
 
 	public static int reverseInteger(int x){
