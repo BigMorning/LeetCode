@@ -9,16 +9,31 @@ public class PalindromeNumber {
 		int temp = x;
 		while(temp != 0){
 			result = result*10 + (temp%10);
-			if(result > Integer.MAX_VALUE || result < Integer.MIN_VALUE)
-				return false;
 			temp = temp/10;
 		}
 		
 		return ((int)result == x );
 	}
 	
+	public static boolean isPalindrome(int x){
+		if(x < 0)
+			return false;
+		int d = 1;
+		while(x/d >= 10)
+			d = d*10;
+		while(x > 0){
+			int u = x/d;
+			int v = x % 10;
+			if(u != v)
+				return false;
+			x = x%d/10;
+			d = d/100;
+		}
+		return true;
+	}
+	
 	public static void main(String[] args) {
-		int x = -2147447412;
-		System.out.println(isPalindromeMyCode(x));
+		int x = 12321;
+		System.out.println(isPalindrome(x));
 	}
 }
